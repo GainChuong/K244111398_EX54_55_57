@@ -1,0 +1,116 @@
+<html>
+    <head>
+        <title>EX57</title>
+        <script>
+            function Sum(){
+                var qty1 = eval(myform.qty1.value);
+                var qty2 = eval(myform.qty2.value);
+                var qty3 = eval(myform.qty3.value);
+                var total = 0;
+                if ((qty1)!="" && (qty1)>0){
+                    total += qty1 * 19.95;
+                    myform.item1.value =(qty1 * 19.95) + "$";
+                } else {
+                    myform.item1.value = "";
+                }
+                if ((qty2)!="" && (qty2)>0){
+                    total += qty2 * 29.95;
+                    myform.item2.value =(qty2 * 29.95) + "$";
+                } else {
+                    myform.item2.value = "";
+                }
+                if ((qty3)!="" && (qty3)>0){
+                    total += qty3 * 39.95;
+                    myform.item3.value =(qty3 * 39.95) + "$";
+                } else {
+                    myform.item3.value = "";
+                }
+                myform.total.value = total + "$";
+            }
+        </script>
+    </head>
+    <body >
+        <form name="myform">
+            <table  align="center" style="text-align: center;">
+                <tr>
+                    <th>
+                        Part Number
+                    </th>
+                    <th>
+                        Description
+                    </th>
+                    <th>
+                        Price
+                    </th>
+                    <th>
+                        Qty
+                    </th>
+                    <th>
+                        Item table
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        C112
+                    </td>
+                    <td>
+                        Mouse
+                    </td>
+                    <td>
+                        19.95$
+                    </td>
+                    <td>
+                        <input type="number" name="qty1" min="1">
+                    </td>
+                    <td>
+                        <input type="text" name="item1" readonly>
+                    </td>
+                </tr>
+                <tr><td>
+                        B124
+                    </td>
+                    <td>
+                        Keyboard US
+                    </td>
+                    <td>
+                        29.95$
+                    </td>
+                    <td>
+                        <input type="number" name="qty2" min="1">
+                    </td>
+                    <td>
+                        <input type="text" name="item2" readonly>
+                    </td>
+                </tr>
+                <tr>
+<td>
+                        U125
+                    </td>
+                    <td>
+                        USB KingMaxx
+                    </td>
+                    <td>
+                        39.95$
+                    </td>
+                    <td>
+                        <input type="number" name="qty3" min="1">
+                    </td>
+                    <td>
+                        <input type="text" name="item3" readonly>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="5" style="text-align: right;">
+                        <hr>
+                        Total:
+                        <input type="text" name="total" readonly>
+                        <br>
+                        <button type="button" onclick="Sum()" style="background-color: yellow; border-color: peru;">
+                            Sum
+                        </button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>
