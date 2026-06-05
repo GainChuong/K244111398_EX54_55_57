@@ -1,0 +1,91 @@
+<html>
+    <head>
+        <title>EX54</title>
+        <style>
+            input{
+                width: 100%;
+            }
+        </style>
+        <script>
+            function MaxValue(){
+                a=eval(myform.a.value)
+                b=eval(myform.b.value)
+                c=eval(myform.c.value)
+                max=a
+                if (b>max){
+                    max=b
+                }
+                if (c>max){
+                    max=c
+                }
+                myform.results.value = max
+            }
+            function MinValue(){
+                a=eval(myform.a.value)
+                b=eval(myform.b.value)
+                c=eval(myform.c.value)
+                min=a
+                if (b<min){
+                    min=b
+                }
+                if (c<min){
+                    min=c
+                }
+                myform.results.value = min}
+            function Sina(){
+                a=eval(myform.a.value)
+                myform.results.value = Math.sin(a)
+            }
+            function Cosa(){
+                a=eval(myform.a.value)
+                myform.results.value = Math.cos(a)
+            }
+            function Mu(){
+                a=eval(myform.a.value)
+                b=eval(myform.b.value)
+                myform.results.value = Math.pow(a,b)
+            }
+        </script>
+    </head>
+    <body>
+        <form name="myform">
+            <table border="1" align="center" style="text-align: center;">
+                <tr>
+                    <td>a</td>
+                    <td><input type="number" name="a"></td>
+                </tr>
+                <tr>
+                    <td>b</td>
+                    <td><input type="number" name="b"></td>
+                </tr>
+                <tr>
+                    <td>c</td>
+                    <td><input type="number" name="c"></td>
+                </tr>
+                <tr>
+                    <td>Results:</td>
+                    <td><input type="number" name="results" readonly></td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <button type="button" onclick="MaxValue()">
+                        MAX
+                        </button>
+                        <button type="button" onclick="MinValue()">
+                            MIN
+                        </button>
+                        <button type="button" onclick="Sina()">
+                        Sin(a)
+                        </button>
+                        <button type="button" onclick="Cosa()">
+                        Cos(a)
+                        </button>
+                        <button type="button" onclick="Mu()">
+                        a^b
+                        </button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>
