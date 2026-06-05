@@ -11,6 +11,19 @@
                 var a=eval(myform.a.value)
                 var b=eval(myform.b.value)
                 var c=eval(myform.c.value)
+                if (a == 0) {
+                    if (b == 0) {
+                        if (c == 0) {
+                            myform.results.value = "Phương trình vô số nghiệm"
+                        } else {
+                            myform.results.value = "Phương trình vô nghiệm"
+                        }
+                    } else {
+                        var x = -c/b
+                        myform.results.value = "x = " + x
+                    }
+                    return
+                }
                 var delta = Math.pow(b, 2) - 4*a*c
                 if (delta < 0){
                     myform.results.value = "Vô nghiệm"
