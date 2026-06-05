@@ -3,29 +3,47 @@
         <title>EX57</title>
         <script>
             function Sum(){
-                var qty1 = eval(myform.qty1.value);
-                var qty2 = eval(myform.qty2.value);
-                var qty3 = eval(myform.qty3.value);
                 var total = 0;
-                if ((qty1)!="" && (qty1)>0){
-                    total += qty1 * 19.95;
-                    myform.item1.value =(qty1 * 19.95) + "$";
+                var prc1 = parseFloat(document.getElementById("price1").innerHTML);
+                var prc2 = parseFloat(document.getElementById("price2").innerHTML);
+                var prc3 = parseFloat(document.getElementById("price3").innerHTML);
+
+                if (myform.qty1.value ==""){
+                    myform.qty1.value=0
+
+                }
+                if (myform.qty2.value==""){
+                    myform.qty2.value=0
+
+                }
+                if(myform.qty3.value==""){
+                    myform.qty3.value=0
+                }
+                if (myform.qty1.value >= 0){
+                    var qty1 = eval(myform.qty1.value);
+                    total += qty1 * prc1;
+                    myform.item1.value = (qty1 * prc1).toFixed(2) + "$";
                 } else {
                     myform.item1.value = "";
+                    alert("Please enter a valid quantity for item 1");
                 }
-                if ((qty2)!="" && (qty2)>0){
-                    total += qty2 * 29.95;
-                    myform.item2.value =(qty2 * 29.95) + "$";
+                if (myform.qty2.value >=0){
+                    var qty2 = eval(myform.qty2.value);
+                    total += qty2 * prc2;
+                    myform.item2.value = (qty2 * prc2).toFixed(2) + "$";
                 } else {
                     myform.item2.value = "";
+                    alert("Please enter a valid quantity for item 2");
                 }
-                if ((qty3)!="" && (qty3)>0){
-                    total += qty3 * 39.95;
-                    myform.item3.value =(qty3 * 39.95) + "$";
+                if (myform.qty3.value >= 0){
+                    var qty3 = eval(myform.qty3.value);
+                    total += qty3 * prc3;
+                    myform.item3.value = (qty3 * prc3).toFixed(2) + "$";
                 } else {
                     myform.item3.value = "";
+                    alert("Please enter a valid quantity for item 3");
                 }
-                myform.total.value = total + "$";
+                myform.total.value = total.toFixed(2) + "$";
             }
         </script>
     </head>
@@ -56,7 +74,7 @@
                     <td>
                         Mouse
                     </td>
-                    <td>
+                    <td id="price1">
                         19.95$
                     </td>
                     <td>
@@ -66,13 +84,14 @@
                         <input type="text" name="item1" readonly>
                     </td>
                 </tr>
-                <tr><td>
+                <tr>
+                    <td>
                         B124
                     </td>
                     <td>
                         Keyboard US
                     </td>
-                    <td>
+                    <td id="price2">
                         29.95$
                     </td>
                     <td>
@@ -83,13 +102,13 @@
                     </td>
                 </tr>
                 <tr>
-<td>
+                    <td>
                         U125
                     </td>
                     <td>
                         USB KingMaxx
                     </td>
-                    <td>
+                    <td id="price3">
                         39.95$
                     </td>
                     <td>
