@@ -1,0 +1,66 @@
+<html>
+    <head>
+        <title>EX55</title>
+        <style>
+            input{
+                width: 100%;
+            }
+        </style>
+        <script>
+            function PTB2(){
+                var a=eval(myform.a.value)
+                var b=eval(myform.b.value)
+                var c=eval(myform.c.value)
+                var delta = Math.pow(b, 2) - 4*a*c
+                if (delta < 0){
+                    myform.results.value = "Vô nghiệm"
+                } else if (delta == 0){
+                    var x = -b/(2*a)
+                    myform.results.value = "Nghiệm kép: x = " + x
+                } else {
+                    var x1 = (-b + Math.sqrt(delta))/(2*a)
+                    var x2 = (-b - Math.sqrt(delta))/(2*a)
+                    myform.results.value = "x1 = " + x1 + ", x2 = " + x2
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <form name="myform">
+            <table border="1" align="center" style="text-align: center;">
+                <tr>
+                    <td colspan="2" style="text-align: center;background-color: aquamarine;">The quadratic equation</td>
+                </tr>
+                <tr>
+                    <td>a</td>
+                    <td><input type="number" name="a"></td>
+                </tr>
+                <tr>
+                    <td>b</td>
+                    <td><input type="number" name="b"></td>
+                </tr>
+                <tr>
+                    <td>c</td>
+                    <td><input type="number" name="c"></td>
+                </tr>
+                <tr>
+                    <td>Results:</td>
+                    <td><input type="text" name="results" readonly></td>
+                </tr>
+                <tr>
+                    <td>
+
+                    </td>
+                    <td>
+                        <button type="button" onclick="PTB2()">
+                        Find solution
+                        </button>
+                        <button type="reset">
+                        Clear
+                        </button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>
